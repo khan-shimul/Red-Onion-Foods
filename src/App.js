@@ -1,12 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-import { Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home/Home';
+import Header from './Pages/Shared/Header/Header';
+import Login from './Pages/Login/Login/Login';
 
 function App() {
   return (
     <div className="font-link">
-      <h1 className="fw-bold">kire madari</h1>
-      <Button variant="danger">Button</Button>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
