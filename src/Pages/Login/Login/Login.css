@@ -1,0 +1,29 @@
+.primary{
+    color: #FF0049;
+}
+.login-form input{
+    border: none;
+    background-color: #f5f5f5;
+    font-size: 12px;
+    padding: 12px 8px;
+}
+.login-form input:focus{
+    border: none;
+    background-color: #f5f5f5;
+}
+
+.btn-login{
+    background-color: #FF0049;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.already-exist{
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+.already-exist:hover{
+    color: #FF0049;
+}
