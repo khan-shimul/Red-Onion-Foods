@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/logo2.png';
 import './Header.css'
@@ -21,7 +21,7 @@ const Header = () => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link href="#home"><i className="fas fa-shopping-cart text-dark"></i></Nav.Link>
-                        <Nav.Link className="text-dark fw-bold" as={Link} to="/login">Login</Nav.Link>
+                        <Nav.Link as={Link} to="/login" className="text-dark login">Login</Nav.Link>
                         <Nav.Link as={Link} to="/signup">
                             <button className="btn-sign-up">Sign Up</button>
                         </Nav.Link>
