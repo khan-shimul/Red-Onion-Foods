@@ -3,8 +3,11 @@ import { Button, Form } from 'react-bootstrap';
 import './Login.css';
 import logo from '../../images/logo2.png';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hook/useAuth';
 
 const Login = () => {
+    const { signInUsingGoogle } = useAuth();
+
     return (
         <section className="login-section">
             <div className="d-flex justify-content-center align-items-center">
@@ -23,11 +26,11 @@ const Login = () => {
                         </button>
                     </Form>
                     <div className="text-center">
-                        <Link to="/signup" className="already-exist primary text-center">Already have an account?</Link>
+                        <Link to="/signup" className="already-exist primary text-center">New to Red Onion? Create Account</Link>
                     </div>
                     <div className="or-sign-in text-center">
                         <h5>or</h5>
-                        <Button className="rounded-3 btn-danger"><i className="fab fa-google"></i> Google Sign In</Button>
+                        <Button onClick={signInUsingGoogle} className="rounded-3 btn-danger"><i className="fab fa-google"></i> Google Sign In</Button>
                     </div>
                 </div>
             </div>
