@@ -1,15 +1,20 @@
+.login-section{
+    background-image: url('../../images/bannerbackground.png');
+    height: 550px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .primary{
     color: #FF0049;
 }
 .login-form input{
     border: none;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
     font-size: 12px;
     padding: 12px 8px;
-}
-.login-form input:focus{
-    border: none;
-    background-color: #f5f5f5;
 }
 
 .btn-login{
@@ -27,4 +32,12 @@
 }
 .already-exist:hover{
     color: #FF0049;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 480px) {
+    .login-section{
+        height: 100vh;
+    }
+    
 }

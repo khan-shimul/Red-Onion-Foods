@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormControl, InputGroup } from 'react-bootstrap';
-import './Banner.css'
+import './Banner.css';
 
 const Banner = () => {
     return (

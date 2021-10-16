@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Pages/Home/Home/Home';
-import Header from './Pages/Shared/Header/Header';
-import Login from './Pages/Login/Login/Login';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home/Home';
+import Login from './components/Login/Login';
 
 function App() {
   return (
@@ -10,10 +10,13 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Home />
           </Route>
-          <Route path="/login">
+          <Route path='/home'>
+            <Home />
+          </Route>
+          <Route path='/login'>
             <Login />
           </Route>
         </Switch>

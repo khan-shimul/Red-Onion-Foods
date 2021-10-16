@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import logo from '../../../images/logo2.png';
-import './Header.css'
+import logo from '../../images/logo2.png';
+import './Header.css';
 
 const Header = () => {
     return (
