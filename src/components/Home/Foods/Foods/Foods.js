@@ -11,7 +11,7 @@ const Foods = () => {
         <section className="d-flex justify-content-center mt-4">
             <div>
                 <Tabs variant="pills" defaultActiveKey="lunch">
-                    {/* Breakfast Part */}
+                    {/* Breakfast */}
                     <Tab eventKey="breakfast" title="Breakfast" className="my-3 text-center">
                         <Container>
                             <Row xs={1} sm={2} md={3} className="g-4">
@@ -24,7 +24,7 @@ const Foods = () => {
                             </Row>
                         </Container>
                     </Tab>
-                    {/* Lunch Part */}
+                    {/* Lunch */}
                     <Tab eventKey="lunch" title="Lunch" className="my-3">
                         <Container>
                             <Row xs={1} sm={2} md={3} className="g-4">
@@ -37,7 +37,7 @@ const Foods = () => {
                             </Row>
                         </Container>
                     </Tab>
-                    {/* Dinner Part */}
+                    {/* Dinner */}
                     <Tab eventKey="dinner" title="Dinner" className="my-3">
                         <Container>
                             <Row xs={1} sm={2} md={3} className="g-4">

@@ -6,7 +6,7 @@ const Meal = ({ food }) => {
     const { img, name, description, price } = food;
     return (
         <Col>
-            <Card className="food text-center p-2">
+            <Card className="food text-center p-2 border-0 meal">
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
