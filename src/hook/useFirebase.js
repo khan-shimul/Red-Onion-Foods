@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile, signOut } from "firebase/auth";
 import initializeAuthentication from "../components/Login/Firebase/firebase.init";
 
 
@@ -7,7 +7,8 @@ initializeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState(null);
-    const [userName, setUserName] = useState('');
+
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -15,7 +16,7 @@ const useFirebase = () => {
 
     // get user name
     const handleNameChange = e => {
-        setUserName(e.target.value);
+        setName(e.target.value);
     }
     // get user email
     const handleEmailChange = e => {
@@ -44,6 +45,40 @@ const useFirebase = () => {
             .then(result => {
                 console.log(result.user)
                 setError('');
+                verifyEmail();
+                setUserName();
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    // verify email
+    const verifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
+            .then(() => {
+                console.log('please check email')
+                setError('please check your email')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    // set user name
+    const setUserName = () => {
+        updateProfile(auth.currentUser, { displayName: name })
+            .then(() => { })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    // reset password
+    const handleResetPassword = () => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                setError('please check your email')
             })
             .catch(error => {
                 setError(error.message)
@@ -102,6 +137,7 @@ const useFirebase = () => {
         handlePasswordChange,
         handleRegistration,
         processSignInEmailPass,
+        handleResetPassword,
         error,
         signInUsingGoogle,
         logOut

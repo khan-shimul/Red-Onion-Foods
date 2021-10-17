@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
 
 const Login = () => {
-    const { handleEmailChange, handlePasswordChange, processSignInEmailPass, signInUsingGoogle, error } = useAuth();
+    const { handleEmailChange, handlePasswordChange, processSignInEmailPass, signInUsingGoogle, error, handleResetPassword } = useAuth();
 
     return (
         <section className="login-section">
@@ -29,6 +29,8 @@ const Login = () => {
                         </button>
                     </Form>
                     <div className="text-center">
+                        <button onClick={handleResetPassword} className="btn btn-secondary btn-sm">Reset Password</button>
+                        <br />
                         <Link to="/signup" className="already-exist primary text-center">New to Red Onion? Create Account</Link>
                     </div>
                     <div className="or-sign-in text-center">
