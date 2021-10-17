@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import initializeAuthentication from "../components/Login/Firebase/firebase.init";
 
 
@@ -50,6 +50,18 @@ const useFirebase = () => {
             })
     }
 
+    // sign in using email and pass
+    const processSignInEmailPass = e => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                console.log('login successfully', result.user)
+                setError('')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
     // google sign in
     const signInUsingGoogle = () => {
         const googleProvider = new GoogleAuthProvider();
@@ -89,6 +101,7 @@ const useFirebase = () => {
         handleEmailChange,
         handlePasswordChange,
         handleRegistration,
+        processSignInEmailPass,
         error,
         signInUsingGoogle,
         logOut

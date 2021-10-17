@@ -6,20 +6,23 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle } = useAuth();
+    const { handleEmailChange, handlePasswordChange, processSignInEmailPass, signInUsingGoogle, error } = useAuth();
 
     return (
         <section className="login-section">
             <div className="d-flex justify-content-center align-items-center">
                 <div className="mt-5">
                     <div className="text-center"><img src={logo} width="220" alt="" /></div>
-                    <Form className="mt-4 login-form w-100">
+                    <Form onSubmit={processSignInEmailPass} className="mt-4 login-form w-100">
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Email" />
+                            <Form.Control onBlur={handleEmailChange} type="email" placeholder="Email" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" />
+                            <Form.Text className="text-danger">
+                                {error}
+                            </Form.Text>
                         </Form.Group>
                         <button className="w-100 py-2 btn-login mb-2" type="submit">
                             Sign In
