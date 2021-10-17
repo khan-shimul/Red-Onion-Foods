@@ -5,6 +5,8 @@ import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
 import AuthProvider from './contexts/AuthProvider';
 import SignUp from './components/SignUp/SignUp';
+import Cart from './components/Cart/Cart';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
             <Route path='/home'>
               <Home />
             </Route>
+            <PrivateRoute path='/cart'>
+              <Cart />
+            </PrivateRoute>
             <Route path='/login'>
               <Login />
             </Route>

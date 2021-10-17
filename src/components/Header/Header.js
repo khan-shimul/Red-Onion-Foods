@@ -22,7 +22,7 @@ const Header = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        <Nav.Link href="#home"><i className="fas fa-shopping-cart text-dark"></i></Nav.Link>
+                        <Nav.Link as={Link} to="/cart"><i className="fas fa-shopping-cart text-dark"></i></Nav.Link>
                         {
                             !user && <Nav.Link as={Link} to="/login" className="text-dark login">Login</Nav.Link>
                         }

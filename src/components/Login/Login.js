@@ -2,11 +2,27 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import './Login.css';
 import logo from '../../images/logo2.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
 
 const Login = () => {
-    const { handleEmailChange, handlePasswordChange, processSignInEmailPass, signInUsingGoogle, error, handleResetPassword } = useAuth();
+    const { handleEmailChange, handlePasswordChange, processSignInEmailPass, signInUsingGoogle, error, setError, handleResetPassword } = useAuth();
+
+    const location = useLocation();
+    const redirect_uri = location.state?.from || '/home';
+
+    const history = useHistory();
+
+    const handleSignIn = () => {
+        signInUsingGoogle()
+            .then(result => {
+                console.log(result.user)
+                history.push(redirect_uri)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
 
     return (
         <section className="login-section">
@@ -29,13 +45,13 @@ const Login = () => {
                         </button>
                     </Form>
                     <div className="text-center">
-                        <button onClick={handleResetPassword} className="btn btn-secondary btn-sm">Reset Password</button>
-                        <br />
+                        {/* <button onClick={handleResetPassword} className="btn btn-secondary btn-sm">Reset Password</button>
+                        <br /> */}
                         <Link to="/signup" className="already-exist primary text-center">New to Red Onion? Create Account</Link>
                     </div>
                     <div className="or-sign-in text-center">
                         <h5>or</h5>
-                        <Button onClick={signInUsingGoogle} className="rounded-3 btn-danger"><i className="fab fa-google"></i> Google Sign In</Button>
+                        <Button onClick={handleSignIn} className="rounded-3 btn-danger"><i className="fab fa-google"></i> Google Sign In</Button>
                     </div>
                 </div>
             </div>

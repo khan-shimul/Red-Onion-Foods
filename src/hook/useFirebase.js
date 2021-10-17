@@ -101,13 +101,13 @@ const useFirebase = () => {
     const signInUsingGoogle = () => {
         const googleProvider = new GoogleAuthProvider();
 
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                console.log(result.user)
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
+        return signInWithPopup(auth, googleProvider)
+        // .then(result => {
+        //     console.log(result.user)
+        // })
+        // .catch(error => {
+        //     console.log(error.message)
+        // })
     }
     // sign out
     const logOut = () => {
@@ -139,6 +139,7 @@ const useFirebase = () => {
         processSignInEmailPass,
         handleResetPassword,
         error,
+        setError,
         signInUsingGoogle,
         logOut
     }
