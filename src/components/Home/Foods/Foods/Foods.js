@@ -9,7 +9,7 @@ const Foods = () => {
 
     return (
         <section className="d-flex justify-content-center mt-4">
-            <div>
+            <div className="tabs-text">
                 <Tabs variant="pills" defaultActiveKey="lunch">
                     {/* Breakfast */}
                     <Tab eventKey="breakfast" title="Breakfast" className="my-3 text-center">

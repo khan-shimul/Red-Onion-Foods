@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
 import AuthProvider from './contexts/AuthProvider';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path='/login'>
               <Login />
+            </Route>
+            <Route path='/signup'>
+              <SignUp />
             </Route>
           </Switch>
         </Router>
