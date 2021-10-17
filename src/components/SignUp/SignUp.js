@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
 import logo from '../../images/logo2.png';
 
 const SignUp = () => {
-    const { signInUsingGoogle } = useAuth();
+    const { handleEmailChange, handlePasswordChange, handleRegistration, handleNameChange, error, signInUsingGoogle } = useAuth();
+
     return (
         <div>
             <section className="login-section">
                 <div className="d-flex justify-content-center align-items-center">
                     <div className="mt-5">
                         <div className="text-center"><img src={logo} width="220" alt="" /></div>
-                        <Form className="mt-4 login-form w-100">
+                        <Form onSubmit={handleRegistration} className="mt-4 login-form w-100">
                             <Form.Group className="mb-3">
-                                <Form.Control type="text" placeholder="Name" />
+                                <Form.Control onBlur={handleNameChange} type="text" placeholder="Name" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Email" />
+                                <Form.Control onBlur={handleEmailChange} type="email" placeholder="Email" required />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" required />
+                                <Form.Text className="text-danger">
+                                    {error}
+                                </Form.Text>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
